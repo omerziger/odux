@@ -1,9 +1,3 @@
-const cartInitialState = {
-    items: [],
-    promotions: [],
-    cost: 0
-};
-
 class Store {
     constructor(initialState, reducer) {
         this.state = initialState;
@@ -13,7 +7,13 @@ class Store {
     dispatch(action, payload) {
         this.state = this.reducer(this.state, action, payload);
     }
-}
+};
+
+const cartInitialState = {
+    items: [],
+    promotions: [],
+    cost: 0
+};
 
 const reducer = (state, action, payload) => {
     switch (action) {
@@ -25,7 +25,7 @@ const reducer = (state, action, payload) => {
     }
 
     return state;
-}
+};
 
 const cartStore = new Store(cartInitialState, reducer);
 
